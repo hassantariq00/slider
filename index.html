@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <title>Document</title>
+    <style>
+        #img{
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .container{
+            position: relative
+        }
+
+        .prev ,.next {
+            position: absolute;
+        }
+        .next {
+            right: 0;
+            bottom: 50%;
+        }
+        .prev {
+            left: 0;
+            bottom: 50%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container col-lg-6 m-auto text-center">
+        <img id="img" src="https://i.ndtvimg.com/mt/2015-01/Nawaz_Sharif_Waving_650.jpg" alt="">
+       
+        <h1 id="name">Nawaz Sharif</h1>
+        <button class="prev">
+            <i class="bi bi-caret-left-fill"></i>
+        </button>
+        <button class="next">
+            <i class="bi bi-caret-right-fill"></i>
+        </button>
+        <p id="info">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quia quasi eius, odio saepe optio mollitia facere ab veniam nobis pariatur!</p>
+       
+    </div>
+
+
+
+    <script>
+        let next = document.querySelector('.next')
+        let prev = document.querySelector('.prev')
+        let img = document.querySelector('#img')
+        let name = document.querySelector('#name')
+        let info = document.querySelector('#info')
+
+        let people = [
+            {
+                image : 'https://i.ndtvimg.com/mt/2015-01/Nawaz_Sharif_Waving_650.jpg',
+                name: 'Nawaz Sharif',
+                info : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repudiandae neque harum libero quas tempore laudantium deleniti ex eveniet obcaecati!'
+            },
+            {
+                image : 'https://akm-img-a-in.tosshub.com/indiatoday/images/story/202302/imran_khan_1200x768_1200x768-sixteen_nine.jpg?VersionId=ImN_h0082deCK3fwI4kIVBwBYcVsAErM&size=690:388',
+                name: 'imran khan',
+                info : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repudiandae neque harum libero quas tempore laudantium deleniti ex eveniet obcaecati!'
+            },
+            {
+                image : 'https://i.dawn.com/primary/2022/11/27130012ecc1968.jpg',
+                name: 'bajwa sahab',
+                info : 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repudiandae neque harum libero quas tempore laudantium deleniti ex eveniet obcaecati!'
+            },
+            
+        ]
+            let count = 0;
+            img.addEventListener('click',()=>{
+                img.src = people[count].image;
+                name.innerHTML = people[count].name
+                count++;
+                if(count === people.length){
+                    count = 0;
+                }
+                console.log(count)
+            })
+
+
+    </script>
+</body>
+
+</html>
